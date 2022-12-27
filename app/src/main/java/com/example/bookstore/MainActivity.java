@@ -10,9 +10,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -85,6 +89,25 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+        String myArr[]=getResources().getStringArray(R.array.grid);
+        ArrayList<String>myList=new ArrayList<String>(Arrays.asList(myArr));
+        ArrayAdapter<String>adapter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,myList);
+
+        GridView myGrid=findViewById(R.id.myGrid);
+        myGrid.setAdapter(adapter);
+
+        myGrid.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String name=myList.get(position);
+                Intent i=new Intent(MainActivity.this,ShowBooks.class);
+                i.putExtra("name",name);
+                startActivity(i);
+            }
+
+        });
+
+
         //Bottom navigation buttons
         Button homeBtn= findViewById(R.id.homeBtn);
         Button categoryBtn= findViewById(R.id.categoryBtn);
@@ -95,42 +118,42 @@ public class MainActivity extends AppCompatActivity{
         homeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,MainActivity.class);
-                startActivity(i);
+                newIntent(MainActivity.class);
             }
         });
 
         categoryBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,Category.class);
-                startActivity(i);
+                newIntent(Category.class);
             }
         });
 
         cartBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,Cart.class);
-                startActivity(i);
+                newIntent(Cart.class);
             }
         });
 
         adminBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,Admin.class);
-                startActivity(i);
+                newIntent(Admin.class);
             }
         });
 
         ProfileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(i);
+                newIntent(LoginActivity.class);
             }
         });
+    }
 
+    public void newIntent(Class anyCLass)
+    {
+        Intent i = new Intent(MainActivity.this,anyCLass);
+        startActivity(i);
     }
 }

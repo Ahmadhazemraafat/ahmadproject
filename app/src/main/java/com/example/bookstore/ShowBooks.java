@@ -46,26 +46,29 @@ public class ShowBooks extends AppCompatActivity{
         homeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(ShowBooks.this,MainActivity.class);
-                startActivity(i);
+                newIntent(MainActivity.class);
             }
         });
 
         categoryBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(ShowBooks.this,Category.class);
-                startActivity(i);
+                newIntent(Category.class);
             }
         });
 
         cartBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(ShowBooks.this,Cart.class);
-                startActivity(i);
+                newIntent(Cart.class);
             }
         });
 
+    }
+
+    public void newIntent(Class anyCLass)
+    {
+        Intent i = new Intent(ShowBooks.this,anyCLass);
+        startActivity(i);
     }
 }

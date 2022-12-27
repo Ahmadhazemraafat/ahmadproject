@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bb"
     tools:context=".RegisterActivity">
 
 
@@ -12,10 +11,12 @@
         android:id="@+id/toolbar"
         android:layout_width="410dp"
         android:layout_height="60dp"
+        android:layout_marginStart="1dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        tools:layout_editor_absoluteX="1dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/logo"
@@ -34,7 +35,7 @@
     <EditText
         android:id="@+id/inputUsername"
         android:layout_width="374dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginStart="23dp"
         android:layout_marginTop="170dp"
         android:background="@drawable/input_bg"
@@ -55,7 +56,7 @@
     <EditText
         android:id="@+id/inputPassword"
         android:layout_width="374dp"
-        android:layout_height="44dp"
+        android:layout_height="48dp"
         android:layout_marginStart="23dp"
         android:layout_marginTop="235dp"
         android:background="@drawable/input_bg"
