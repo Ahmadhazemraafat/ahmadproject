@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:elevation="8dp"
+    app:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:orientation="vertical">
+
+        <!--text view for our course name-->
+
+
+        <!--text view for our course description-->
+        <TextView
+            android:id="@+id/cardbookname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="Book Name"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/cardbookpub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="Book Publisher"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/cardbookcat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="Book Category"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/cardbookauth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="Book Author"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/cardbookquan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="Book Quantity"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/cardbookprice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="Book Price"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/cardbookdesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="Book Description"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>
