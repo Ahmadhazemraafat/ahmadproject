@@ -31,7 +31,7 @@ public class DBHelper  extends SQLiteOpenHelper
                 ", address text " +
                 ", authority binary" +
                 ");" ); */
-        db.execSQL("create Table User (inputUsername TEXT primary key, inputPassword TEXT )");
+        db.execSQL("create Table User (inputUsername TEXT, inputPassword TEXT, userid integer primary key autoincrement)");
 
 
         db.execSQL("create table Books(" +
@@ -54,6 +54,8 @@ public class DBHelper  extends SQLiteOpenHelper
                 ",foreign key (bookids) references Books (bookid)" +
                 ",foreign key (userids) references User (userid)" +
                 ");");
+
+
 
         ContentValues value= new ContentValues();
         value.put("name","Love on the Brain");
@@ -154,6 +156,34 @@ public class DBHelper  extends SQLiteOpenHelper
         onCreate(db);
 
 
+    }
+
+    public void createanOrder(int price,int bookid,int userid)
+    {
+        ContentValues row=new ContentValues();
+        row.put("totalprice",price);
+        row.put("bookids",bookid);
+        row.put("userids",userid);
+        libraryDatabase=getWritableDatabase();
+        libraryDatabase.insert("Cart",null,row);
+    }
+    public int[] getOrder(int userid)
+
+    {
+        libraryDatabase=getReadableDatabase();
+        String []str1 = {Integer.toString(userid)};
+        Cursor cursor=libraryDatabase.rawQuery("select totalprice from Cart where userids like ?",str1);
+
+        int[]prices=new int[cursor.getCount()];
+        int i=0;
+        while(cursor.moveToNext())
+        {
+            int price=cursor.getInt(0);
+            prices[i]=price;
+            i++;
+
+        }
+        return prices;
     }
 
     public void createNewBook( String name, String publisher, String category, String author, int quantity, int price, String description)

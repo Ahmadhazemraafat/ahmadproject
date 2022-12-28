@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="grid">
+        <item>Love on the Brain</item>
+        <item>Things We Never Got Over</item>
+        <item>Hunt the Stars</item>
+        <item>Sea of Tranquility</item>
+        <item>Manhunt</item>
+        <item>The Hollow Kind</item>
+        <item>The Night Shift</item>
+        <item>A Flicker in the Dark</item>
+    </string-array>
+</resources>

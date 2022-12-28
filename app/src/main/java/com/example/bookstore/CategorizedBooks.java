@@ -13,11 +13,12 @@ import java.util.ArrayList;
 
 public class CategorizedBooks extends AppCompatActivity {
 
+    Integer newbook=R.drawable.i1;
     ListView listView;
-    Integer[] Rimageid={R.drawable.rb1,R.drawable.rb2};
-    Integer[] Simageid={R.drawable.scfi1,R.drawable.scfi2};
-    Integer[] Himageid={R.drawable.h1,R.drawable.h2};
-    Integer[] Timageid={R.drawable.t1,R.drawable.t2};
+    Integer[] Rimageid={R.drawable.rb1,R.drawable.rb2,newbook,newbook};
+    Integer[] Simageid={R.drawable.scfi1,R.drawable.scfi2,newbook,newbook};
+    Integer[] Himageid={R.drawable.h1,R.drawable.h2,newbook,newbook};
+    Integer[] Timageid={R.drawable.t1,R.drawable.t2,newbook,newbook};
 
 
     String[] matchedbooks={};

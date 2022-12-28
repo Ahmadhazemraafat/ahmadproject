@@ -63,25 +63,28 @@ public class ShowAuthorBooks extends AppCompatActivity{
         homeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(ShowAuthorBooks.this,MainActivity.class);
-                startActivity(i);
+                newIntent(MainActivity.class);
             }
         });
 
         categoryBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(ShowAuthorBooks.this,Category.class);
-                startActivity(i);
+                newIntent(Category.class);
             }
         });
 
         cartBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(ShowAuthorBooks.this,Cart.class);
-                startActivity(i);
+                newIntent(Cart.class);
             }
         });
+    }
+
+    public void newIntent(Class anyCLass)
+    {
+        Intent i = new Intent(ShowAuthorBooks.this,anyCLass);
+        startActivity(i);
     }
 }

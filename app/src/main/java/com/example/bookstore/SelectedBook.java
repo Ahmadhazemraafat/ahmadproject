@@ -35,6 +35,9 @@ public class SelectedBook extends AppCompatActivity {
 
         Cursor cursor=libraryDBHelper.getBook(Name);
 
+        int userid=0;
+        int cartprice=cursor.getInt(6);
+        int id= cursor.getInt(0);
         image.setImageResource(imag);
         bookname.setText(Name);
         bookauthor.setText("By: "+author);
@@ -45,6 +48,8 @@ public class SelectedBook extends AppCompatActivity {
         cartbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+
+                libraryDBHelper.createanOrder(cartprice,id,userid);
                 Intent i=new Intent(SelectedBook.this,Cart.class);
                 startActivity(i);
             }
