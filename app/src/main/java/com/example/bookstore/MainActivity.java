@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity{
 
     Cursor bookCursor;
     Cursor authorCursor;
-    ArrayAdapter<String> booksNamesAdapter;
+    ArrayAdapter<String> books_Or_AuthorAdapter;
     Boolean isSearchForBook=true;
 
     @Override
@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity{
         final DBHelper libraryDBHelper=new DBHelper(this);
         final EditText libraryNameText= findViewById(R.id.SearchText);
         Button searchBtn= findViewById(R.id.SearchBtn);
-        final ListView booksNamesList= findViewById(R.id.list);
+        final ListView book_Or_AuthorList= findViewById(R.id.list);
 
-        booksNamesAdapter=new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1);
-        booksNamesList.setAdapter(booksNamesAdapter);
+        books_Or_AuthorAdapter=new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1);
+        book_Or_AuthorList.setAdapter(books_Or_AuthorAdapter);
 
         searchBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -47,20 +47,20 @@ public class MainActivity extends AppCompatActivity{
                 bookCursor=libraryDBHelper.getBook(libraryName);
                 authorCursor=libraryDBHelper.getAuthor(libraryName);
 
-                booksNamesAdapter.clear();
+                books_Or_AuthorAdapter.clear();
 
                 if(bookCursor!=null)
                 {
                     while(!bookCursor.isAfterLast())
                     {
-                        booksNamesAdapter.add(bookCursor.getString(1));
+                        books_Or_AuthorAdapter.add(bookCursor.getString(1));
                         bookCursor.moveToNext();
                     }
                 }
                 else if(authorCursor!=null)
                 {
                     isSearchForBook=false;
-                    booksNamesAdapter.add(authorCursor.getString(4));
+                    books_Or_AuthorAdapter.add(authorCursor.getString(4));
                 }
                 else
                 {
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        booksNamesList.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        book_Or_AuthorList.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             public void onItemClick(AdapterView<?> parent, View view, int position,long id)
             {
@@ -112,7 +112,6 @@ public class MainActivity extends AppCompatActivity{
         Button homeBtn= findViewById(R.id.homeBtn);
         Button categoryBtn= findViewById(R.id.categoryBtn);
         Button cartBtn= findViewById(R.id.cartBtn);
-        Button adminBtn= findViewById(R.id.adminBtn);
         Button ProfileBtn = findViewById(R.id.profileBtn);
 
         homeBtn.setOnClickListener(new View.OnClickListener(){
@@ -133,13 +132,6 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 newIntent(Cart.class);
-            }
-        });
-
-        adminBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                newIntent(Admin.class);
             }
         });
 
